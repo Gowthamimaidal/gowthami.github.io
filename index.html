@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <div class="container">
+        <form id="contact-form">
+            <h2>Contact Us</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="phone" id="phone" name="phone" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+    <script>
+        document.getElementById('contact-form')
+.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = document.getElementById('name').value; 
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+    var subject = "New message from " + name; 
+    var body = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+    var mailto_link = 'mailto: gowthamimaydal@gmail.com' + '?subject=' 
+    + subject + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto_link;
+  });
+    </script>
+</body>
+</html>
